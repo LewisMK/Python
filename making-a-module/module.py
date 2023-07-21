@@ -25,7 +25,7 @@
 
 # module.py - an example of a Python module
 
-__counter = 0 #this tells module users to not change the value
+__counter = 0 #the dashes tell module users to not change the value
 
 def suml(the_list):
 
