@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Shortener</title>
+    <style>
+        /* Center the content on the page */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(90deg, #f598a8, #f6edb2)
+        }
+
+        /* Main container style */
+        .container {
+            max-width: 500px;
+            text-align: center;
+            background-color: #f2f2f2;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main header style */
+        .main-header {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* About button style */
+        .about-button {
+            float: right;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 5px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 10px;
+        }
+
+        /* Form style */
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #1cda49;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Shortened URL style */
+        .shortened-url {
+            background-color: #e0e0e0;
+            padding: 3px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(170, 163, 163, 0.1);
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+        /* Hide the about container by default */
+        .about-container {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Show the about container when the show-about class is present */
+        .show-about .about-container {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-header">URL Shortener <a href="#" class="about-button">About</a></div>
+        {% if shortened_url %}
+        <div class="shortened-url">
+            <p>Shortened URL: <a href="{{ shortened_url }}">{{ shortened_url }}</a></p>
+        </div>
+        {% endif %}
+        {% if error %}
+        <p style="color: red;">{{ error }}</p>
+        {% endif %}
+        <form action="/shorten" method="post">
+            <label for="long_url">Enter a long URL:</label>
+            <input type="text" name="long_url" required>
+            <label for="custom_short_url">Custom short URL (optional):</label>
+            <input type="text" name="custom_short_url">
+            <input type="submit" value="Shorten">
+        </form>
+    </div>
+
+    <!-- About container -->
+    <div class="about-container">
+        <!-- Add paragraphs about you and the program here -->
+        <p>About me: My name is Lewis.</p>
+        <p>About the program: This is a simple URL shortener web application.</p>
+    </div>
+
+    <!-- JavaScript to handle the "About" button click -->
+    <script>
+        const aboutButton = document.querySelector('.about-button');
+        const aboutContainer = document.querySelector('.about-container');
+        aboutButton.addEventListener('click', function() {
+            aboutContainer.classList.toggle('show-about');
+        });
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            if (!form.long_url.value.trim()) {
+                event.preventDefault(); // Prevent form submission if long_url is empty
+                return;
+            }
+            form.reset();
+        });
+    </script>
+</body>
+</html>
