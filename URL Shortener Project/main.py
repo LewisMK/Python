@@ -28,10 +28,13 @@ connection.close()
 
 app = Flask(__name__)
 
+# the main function to generate the short url
 def generate_short_url():
     characters = string.ascii_letters + string.digits
     short_url = ''.join(random.choice(characters) for _ in range(6))  # You can adjust the length of the short URL
     return short_url
+
+# check if the generated short url is available or is an existing url
 
 def is_short_url_available(short_url):
     connection = sqlite3.connect('urls.db')
@@ -58,11 +61,13 @@ def shorten_url(long_url, custom_short_url=None):
         while not is_short_url_available(short_url):
             short_url = generate_short_url()
 
-    cursor.execute('INSERT INTO urls (long_url, short_url) VALUES (?, ?)', (long_url, short_url))
+    cursor.execute('INSERT INTO urls (long_url, short_url) VALUES (?, ?)', (long_url, short_url)) # save the long and short urls in the database
     connection.commit()
     connection.close()
 
     return short_url
+
+# obtain the saved short url from the database for display purposes
 
 def retrieve_long_url(short_url):
     connection = sqlite3.connect('urls.db')
@@ -73,6 +78,8 @@ def retrieve_long_url(short_url):
     connection.close()
 
     return result[1] if result else None
+
+# check if that url has a valid SSL certificate (prevent malicious URLs)
 
 def has_valid_ssl_certificate(url):
     try:
@@ -92,6 +99,8 @@ def is_valid_url(url):
         return False
 
     return True
+    
+# Start the Flask Implementation by specifying and populating routes.
 
 @app.route('/')
 def index():
@@ -121,6 +130,8 @@ def redirect_to_long_url(short_url):
         return redirect(long_url)
     else:
         return f"Short URL '{short_url}' not found."
+        
+# the entry point of the project
 
 if __name__ == '__main__':
     app.run(debug=True)
