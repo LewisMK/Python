@@ -6,3 +6,7 @@
 print("abcabc".count("b"))
 print("abcabc".count("d"))
 
+''' the output here will be
+2
+0
+'''
