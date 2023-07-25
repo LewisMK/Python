@@ -22,7 +22,7 @@ def grab_banner(target_host, port):
     
     except (socket.error, socket.timeout):
         
-        return ""
+        return "" # Trying to avoid the NoneType error in the callback
     
 
 # Function to scan ports and grab banners
@@ -67,7 +67,7 @@ if __name__ == "__main__":
             
             # Set a timeout
             
-            # client_socket.timeout(1)
+            # client_socket.timeout(1) # I need to work on this NoneType error
             
             # Attempt to connect to the target host on current port
             
@@ -101,6 +101,12 @@ if open_ports:
          
 else:
     print(f"No open ports found on {target_host} in the specified range.")
+
+    # Most websites ports are programmed to not return any service info in their banners for security purposes. 
+    # Therefore, those that do so are revealing important secrets to penetration testers. 
+
+
+    # The next iteration of this program will include an API integration to fetch CVEs for identified services on open ports...stay tuned. 
     
        
         
