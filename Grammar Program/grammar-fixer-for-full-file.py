@@ -1,4 +1,5 @@
 # pip install happytransformer
+
 from happytransformer import HappyTextToText as HappyTTT
 from happytransformer import TextToTextSettings
 
@@ -16,5 +17,7 @@ def Grammar_Fixer(file_path):
     print("Grammar fixed and saved to the file:", file_path)
 
 # Replace 'input.txt' with the path to your input text file
+
 file_path = 'input.txt'
-Grammar_Fixer(file_path)
+
+Grammar_Fixer(file_path) # call the main function to start the program
