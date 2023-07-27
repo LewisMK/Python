@@ -1,4 +1,5 @@
 # pip install happytransformer
+
 from happytransformer import HappyTextToText as HappyTTT
 from happytransformer import TextToTextSettings
 
@@ -8,5 +9,6 @@ def Grammar_Fixer(Text):
     corrected = Grammar.generate_text(Text, args=config)
     print("Corrected Text:", corrected.text)
 
-Text = "This is smple tet we how know this"
+Text = "They have went home tomorrow"
+
 Grammar_Fixer(Text)
