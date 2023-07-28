@@ -7,3 +7,5 @@ for x in fruits:
 
     if x == "banana":
         break
+        
+# the output will be apple and banana. Cherry will not be printed.
