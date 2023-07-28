@@ -11,5 +11,7 @@ print("\n")
 for x in range(6):
     if x == 3: break
     print(x)
+
+# the above code will only print values 1 and 2. 
 else:
     print("I will not be printed.")
