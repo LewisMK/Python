@@ -6,3 +6,5 @@ for x in fruits:
     if x == "banana":
         break
     print (x)
+
+# this code will print apple only. It will not continue after seeing banana
