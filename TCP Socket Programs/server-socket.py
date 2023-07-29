@@ -2,7 +2,7 @@
 
 import socket
 
-s = socket.socket()             # create a socket object
+s = socket.socket()             # create a socket object. note that we do not have to specify the family and type if we are using TCP sockets.
 host = socket.gethostname()     # get current machine name (not its IP)
 port = 9999                     # get port number for connection
 
