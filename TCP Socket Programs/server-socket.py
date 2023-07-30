@@ -25,5 +25,8 @@ while True:
     conn.send(message.encode())
     
     conn.close()                # close the connection
+
+
+# note that the server will continue listening for other connections after this one has been closed. 
     
     
