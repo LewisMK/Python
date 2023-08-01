@@ -4,7 +4,7 @@ import base64
 import os
 
 def decrypt():
-    password = code.get()
+    password = code.get()                    # Decryption logic
     
     if password == "1234":
         screen2 = Toplevel(screen)
@@ -25,12 +25,12 @@ def decrypt():
         text2.insert(END, decrypt)
     
     elif password == "":
-        messagebox.showerror("decryption", "Input a password")
+        messagebox.showerror("decryption", "Input a password") # Deal with empty password 
     
     elif password != "1234":
-        messagebox.showerror("decryption", "Wrong password")
+        messagebox.showerror("decryption", "Wrong password")    # Confirm correct password
     
-def encrypt():
+def encrypt():                                                   # Encryption logic. Similar but opposite of the decryption logic
     password = code.get()
     
     if password == "1234":
@@ -60,7 +60,7 @@ def encrypt():
 
 def main_screen():
     
-    global screen
+    global screen                # three global variables shared by the external functions.
     global code
     global text1
     
