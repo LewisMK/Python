@@ -7,7 +7,7 @@ def decrypt():
     password = code.get()                    # Decryption logic
     
     if password == "1234":
-        screen2 = Toplevel(screen)
+        screen2 = Toplevel(screen)            # Top level displays this screen above the main window
         screen2.title("decryption")
         screen2.geometry("400x200")
         screen2.configure(bg="#00bd56")
