@@ -25,13 +25,16 @@ def main():
             break
         password = input("Enter the password: ")
 
-        save_credentials(username, password)
+        save_credentials(username, password)  #Call main function to start the program
 
         print("Creds Saved.")
 
-#Call main function to start the program
+
 
 if __name__ == '__main__':
 
     main()
+
+#  the json format ensures that we can save multiple username/password entries at the same time 
+#  also, new entries are simply added to the end of the list without deleting past entries
 
