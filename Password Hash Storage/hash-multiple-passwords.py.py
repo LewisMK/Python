@@ -2,7 +2,8 @@ import hashlib
 import json
 
 def save_credentials(username, password):
-    #open the file in append modile
+    
+    #open the file in append mode
 
     with open('multipass.txt', 'a') as file:
         #sha256 hash for the password_hash
@@ -15,7 +16,7 @@ def save_credentials(username, password):
         file.write('\n') #add a new line after every entry
 
 
-#Main function to take inputs and save them to outfile
+# Main function to take inputs and save them to outfile
 
 def main():
     while True:
@@ -25,7 +26,7 @@ def main():
             break
         password = input("Enter the password: ")
 
-        save_credentials(username, password)  #Call main function to start the program
+        save_credentials(username, password)  # Call main function to start the program
 
         print("Creds Saved.")
 
