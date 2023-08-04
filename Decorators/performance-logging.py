@@ -1,4 +1,5 @@
 # this program logs a function's parameters and the output using a decorator
+# we can also now include the function's execution time in the log file
 # logging helps to debug and understand program logic
 
 import logging
