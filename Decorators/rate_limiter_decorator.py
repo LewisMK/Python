@@ -1,6 +1,6 @@
 import time
 
-def rate_limiter(limit_per_second):
+def rate_limiter(limit_per_second):     # Decorator function and logic
     
     min_interval = 1 / limit_per_second
     last_called = 0
@@ -28,8 +28,8 @@ def rate_limiter(limit_per_second):
     return decorator
 
             
-
-@rate_limiter(limit_per_second=1)
+# Wrapping our main function with the decorator
+@rate_limiter(limit_per_second=1)       # the value of limit_per_second can be changed based on needs.
 def limited_function():
     
     sum = 10 + 50
@@ -37,7 +37,7 @@ def limited_function():
     print(sum)
     
 
-    
+# Testing the rate limit for the function   
 for i in range(5):
     
     limited_function()

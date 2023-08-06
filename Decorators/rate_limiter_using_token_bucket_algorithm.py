@@ -1,3 +1,6 @@
+# the Token Bucket Algorithm is used to limit and control traffic, such as network bandwidth allocation and API requests
+# this algo is a load balancer
+
 import time
 
 
@@ -34,7 +37,7 @@ def token_bucket_rate_limited(tokens_per_second):
     
     return decorator
 
-@token_bucket_rate_limited(tokens_per_second=1)
+@token_bucket_rate_limited(tokens_per_second=1)   # change this value depending on the limit needs/available computing resources
 def limited_function():
     
     sum = 10 + 50
@@ -44,6 +47,6 @@ def limited_function():
 for i in range(10):
     
     limited_function()
-    time.sleep(0.5)
+    time.sleep(0.5)    # this line simulates a time delay like in real life. Thus, we can see the rate limit better. 
     
           
