@@ -8,7 +8,7 @@ import aiohttp
 
 
 
-def get_args(*args, **kwargs):
+def get_args(*args, **kwargs):                # This function specifies the possible command-line arguments
     
     parser = argparse.ArgumentParser()
     
@@ -44,12 +44,12 @@ def get_args(*args, **kwargs):
     except argparse.ArgumentError:
         
         parser.print_help()
-        exit(1)
+        exit(1)                            # if there are argument errors, the program exits 
         
     
     
 
-class Dir_bruteforcer():
+class Dir_bruteforcer():                   # the main class with all the other functions
     
     def __init__(self, target, wordlist, extensions, follow_redirect, headers, match_codes, match_size, filter_codes, filter_size, outputfile, hide_title) -> None:
        
